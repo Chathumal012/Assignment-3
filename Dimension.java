@@ -42,7 +42,8 @@ public class Dimension implements DimensionInterface
 	{
       	trace("Dimension: Constructor starts");
 
-//COMPLETE ME!
+		vert = v;
+		horiz = h;
 
       	trace("Dimension: Constructor ends");
 	}
