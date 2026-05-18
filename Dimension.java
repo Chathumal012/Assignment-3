@@ -63,7 +63,7 @@ public class Dimension implements DimensionInterface
 	{
       	trace("setVert: setVert starts");
 
-//COMPLETE ME!
+		vert = v;	// Update the vertical dimension instance variable
 
       	trace("setVert: setVert ends");
 	}
