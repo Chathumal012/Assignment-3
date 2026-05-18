@@ -43,7 +43,7 @@ public class Dimension implements DimensionInterface
       	trace("Dimension: Constructor starts");
 
 		vert = v;
-		horiz = h;
+		horiz = h; // initialise dimensions 
 
       	trace("Dimension: Constructor ends");
 	}
