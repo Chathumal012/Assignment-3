@@ -60,13 +60,14 @@ public class Location implements LocationInterface, Cloneable
 	 *	@param r the row number
 	*/
 	public void setRow(int r)
-	{
-      	trace("setRow: setRow starts");
+{
+    trace("setRow: setRow starts");
 
-//COMPLETE ME
+    // update the row position of the location
+    row = r;
 
-      	trace("setRow: setRow ends");
-	}
+    trace("setRow: setRow ends");
+}
 	
 	
 	/**
