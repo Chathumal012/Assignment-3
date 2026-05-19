@@ -85,7 +85,7 @@ public class Dimension implements DimensionInterface
 	{
       	trace("setHoriz: setHoriz starts");
 
-//COMPLETE ME!
+		horiz = h;	// Update the horizontal dimension   
 
       	trace("setHoriz: setHoriz ends");
 	}
@@ -106,8 +106,7 @@ public class Dimension implements DimensionInterface
 	{
       	trace("getVert: getVert starts and ends");
 
-//COMPLETE ME
-		return 0;	// CHANGE ME
+		return vert;	// CHANGE ME
 	}
 	
 	
@@ -125,8 +124,7 @@ public class Dimension implements DimensionInterface
 	{
       	trace("getHoriz: getHoriz starts and ends");
 
-//COMPLETE ME
-		return 0;	// CHANGE ME
+		return horiz;	// CHANGE ME
 	}
 
 
