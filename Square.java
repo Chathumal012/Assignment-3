@@ -80,10 +80,17 @@ public class Square implements SquareInterface, Cloneable
 	{
       	trace("Square: Constructor starts");
 
-//COMPLETE ME
+		// assign values to instance variables
+		loc=l;
+		colour=Color.WHITE;
+		wall=false;
+		visited=false;
+		start=false;
+		stop=false;
+		number=n;
 
 		trace("Square: Constructor ends");
-	}
+	} 
 
 
 	/**
