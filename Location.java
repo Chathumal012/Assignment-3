@@ -37,13 +37,15 @@ public class Location implements LocationInterface, Cloneable
 	 *	@param c the column number
 	*/
 	public Location(int r, int c)
-	{
-      	trace("Location: Constructor starts");
+{
+    trace("Location: Constructor starts");
 
-//COMPLETE ME
+    // initialise the row and column positions
+    row = r;
+    column = c;
 
-      	trace("Location: Constructor ends");
-	}
+    trace("Location: Constructor ends");
+}
 	
 	
 	/**
@@ -58,13 +60,14 @@ public class Location implements LocationInterface, Cloneable
 	 *	@param r the row number
 	*/
 	public void setRow(int r)
-	{
-      	trace("setRow: setRow starts");
+{
+    trace("setRow: setRow starts");
 
-//COMPLETE ME
+    // update the row position of the location
+    row = r;
 
-      	trace("setRow: setRow ends");
-	}
+    trace("setRow: setRow ends");
+}
 	
 	
 	/**
