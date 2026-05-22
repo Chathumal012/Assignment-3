@@ -155,10 +155,14 @@ public class Square implements SquareInterface, Cloneable
 
 		trace("clone: clone starts");
 
-// COMPLETE ME
+		s = new Square((Location) loc.clone(), start, stop, number);  // Create a copy of the square
+
+		s.wall = wall;
+		s.visited = visited;
+		s.colour = colour;
 
       	trace("clone: clone ends");
-		return null;	// CHANGE ME
+		return s;
 	}
 
 
