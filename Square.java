@@ -316,8 +316,7 @@ public class Square implements SquareInterface, Cloneable
 	{
       	trace("isOccupied: isOccupied starts and ends");
 
-//COMPLETE ME
-		return false;	// CHANGE ME
+		return visited;	
 	}
 
 
