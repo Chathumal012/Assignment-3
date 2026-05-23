@@ -51,7 +51,10 @@ public class Grid implements GridInterface, Cloneable
 	{
       	trace("Grid: Constructor starts");
 
-//COMPLETE ME		
+			dim=m;  // initialise dim variables
+			goalNumber=g;		
+
+ 			initialiseGrid();
 
       	trace("Grid: Constructor ends");
 	}
@@ -158,11 +161,25 @@ public class Grid implements GridInterface, Cloneable
 		
       	trace("clone: clone starts");
 
-//COMPLETE ME		
+			// copy the dimension
+    d = new Dimension(dim.getVert(), dim.getHoriz());
+
+    // create a new grid with new dimension and goal number
+    b = new Grid(d, goalNumber);
+
+    b.loc = (Location) loc.clone();
+
+    for (r = 0; r < dim.getVert(); r++)
+    {
+        for (c = 0; c < dim.getHoriz(); c++)
+        {
+            b.grid[r][c] = (Square) grid[r][c].clone();
+        }
+    }		
 				
       	trace("clone: clone ends");
 
-		return null;	//CHANGE ME
+		return b;
 	}
 	
 	
@@ -232,11 +249,11 @@ public class Grid implements GridInterface, Cloneable
 			// can't continue as provided location isn't in the maze
 			throw new IllegalGridException();
 		}
-//COMPLETE ME		
-
+			r = l.getRow();
+    		c = l.getColumn();
 		trace("getSquare: getSquare ends");
 
-		return null;	//CHANGE ME
+		return grid[r-1][c-1];	//CHANGE ME
 	}
 		
 		
