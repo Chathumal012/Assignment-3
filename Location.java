@@ -132,12 +132,16 @@ public int getRow()
 	 *
 	 *	@return int the column number
 	*/
-	public int getColumn()
-	{
-      	trace("getColumn: getColumn starts and ends");
+public int getColumn()
+{
+    trace("getColumn: getColumn starts and ends");
 
-//COMPLETE ME
-		return 0;	// CHANGE ME
+
+    return column;
+}
+
+//Implement getColumn and clone methods in Location class
+		return 1;	// CHANGE ME
 	}
 	
 	
@@ -151,18 +155,18 @@ public int getRow()
 	 *
 	 *	@return Object the copied Location
 	*/
-	public Object clone()
-	{
-		Location l;
-		
-      	trace("clone: clone starts");
+public Object clone()
+{
+    Location l;
 
-//COMPLETE ME!
+    trace("clone: clone starts");
 
-      	trace("clone: clone ends");
-		return null;  // CHANGE ME
-	}
-	
+    // create a copy of the current location object
+    l = new Location(row, column);
+
+    trace("clone: clone ends");
+    return l;
+}
 	
 	/**
 	 *	toString
