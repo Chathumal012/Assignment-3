@@ -70,7 +70,7 @@ public class Location implements LocationInterface, Cloneable
 }
 	
 	
-	/**
+	/***
 	 *	setColumn
 	 *	Set method for "column" instance variable.
 	 *	Pre-condition: none
