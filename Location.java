@@ -85,11 +85,17 @@ public class Location implements LocationInterface, Cloneable
 	{
       	trace("setColumn: setColumn starts");
 
-//COMPLETE ME
+//made some changes here
 
-      	trace("setColumn: setColumn ends");
-	}
-	
+    public void setColumn(int c)
+{
+    trace("setColumn: setColumn starts");
+
+    // update the column position of the location
+    column = c;
+
+    trace("setColumn: setColumn ends");
+}
 	
 	/**
 	 *	getRow
@@ -102,9 +108,13 @@ public class Location implements LocationInterface, Cloneable
 	 *
 	 *	@return int the row number
 	*/
-	public int getRow()
-	{
-      	trace("getRow: getRow starts and ends");
+public int getRow()
+{
+    trace("getRow: getRow starts and ends");
+
+    // return the row position of the location
+    return row;
+}
 
 //COMPLETE ME
 		return 0;	// CHANGE ME
