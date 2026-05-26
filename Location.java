@@ -2,8 +2,8 @@
 /**
  *	Location ADT
  *
- *	@author << Student Names and IDs >>
- *	@version << Date of Completion >>
+ *	@author << Chathumal Karunanayaka - 755936 & Thavisha Perera - 771066 >>
+ *	@version << 26/05/2026 >>
  *	
  *	This file holds the Location ADT which represents
  *	indices to (positions within) the two-dimensional grid.
@@ -85,7 +85,7 @@ public class Location implements LocationInterface, Cloneable
 	{
       	trace("setColumn: setColumn starts");
 
-//COMPLETE ME
+		column = c;
 
       	trace("setColumn: setColumn ends");
 	}
@@ -106,8 +106,7 @@ public class Location implements LocationInterface, Cloneable
 	{
       	trace("getRow: getRow starts and ends");
 
-//COMPLETE ME
-		return 0;	// CHANGE ME
+		return row;	
 	}
 	
 	
@@ -126,8 +125,7 @@ public class Location implements LocationInterface, Cloneable
 	{
       	trace("getColumn: getColumn starts and ends");
 
-//COMPLETE ME
-		return 0;	// CHANGE ME
+		return column;
 	}
 	
 	
@@ -147,10 +145,12 @@ public class Location implements LocationInterface, Cloneable
 		
       	trace("clone: clone starts");
 
-//COMPLETE ME!
+	
+			l = new Location(row, column);
 
       	trace("clone: clone ends");
-		return null;  // CHANGE ME
+
+		return l;
 	}
 	
 	

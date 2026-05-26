@@ -288,6 +288,9 @@ public class Grid implements GridInterface, Cloneable
 	 *
 	 * 	@return Dimension the Grid's dimension
 	*/
+	/89*999999999999999999999999999999999999999999999
+
+	+
 	public Dimension getDimension()
 	{
 		trace("getDimension: getDimension starts and ends");
