@@ -70,7 +70,7 @@ public class Location implements LocationInterface, Cloneable
 }
 	
 	
-	/**
+	/***
 	 *	setColumn
 	 *	Set method for "column" instance variable.
 	 *	Pre-condition: none
@@ -87,9 +87,15 @@ public class Location implements LocationInterface, Cloneable
 
 		column = c;
 
-      	trace("setColumn: setColumn ends");
-	}
-	
+    public void setColumn(int c)
+{
+    trace("setColumn: setColumn starts");
+
+    // update the column position of the location
+    column = c;
+
+    trace("setColumn: setColumn ends");
+}
 	
 	/**
 	 *	getRow
@@ -102,9 +108,13 @@ public class Location implements LocationInterface, Cloneable
 	 *
 	 *	@return int the row number
 	*/
-	public int getRow()
-	{
-      	trace("getRow: getRow starts and ends");
+public int getRow()
+{
+    trace("getRow: getRow starts and ends");
+
+    // return the row position of the location
+    return row;
+}
 
 		return row;	
 	}
@@ -121,9 +131,9 @@ public class Location implements LocationInterface, Cloneable
 	 *
 	 *	@return int the column number
 	*/
-	public int getColumn()
-	{
-      	trace("getColumn: getColumn starts and ends");
+public int getColumn()
+{
+    trace("getColumn: getColumn starts and ends");
 
 		return column;
 	}
@@ -139,11 +149,9 @@ public class Location implements LocationInterface, Cloneable
 	 *
 	 *	@return Object the copied Location
 	*/
-	public Object clone()
-	{
-		Location l;
-		
-      	trace("clone: clone starts");
+public Object clone()
+{
+    Location l;
 
 	
 			l = new Location(row, column);
