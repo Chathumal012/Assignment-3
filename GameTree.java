@@ -661,11 +661,42 @@ root.setRight(t.root); // Update the right field of the root
 					
 		trace("buildGameBF: buildGameBF starts");
 
-//COMPLETE ME
+// get the maze stored in the current tree
+    b = (Grid) getData();
+
+    if (b.gameOver())
+    {
+        t = this;
+    }
+    else
+    {
+        // generate next BFS moves
+        generateLevelBF(q);
+
+        // if queue is empty, there is no solution
+        if (q.isEmpty())
+        {
+            t = new GameTree();
+        }
+        else
+        {
+            // get next maze from the front of the queue
+            t = (GameTree) q.front();
+
+            // remove it from the queue
+            q.remove();
+
+            // update display with the new maze
+            m.update(t);
+
+            // continue BFS recursively
+            t = t.buildGameBF(m, q);
+        }
+    }
 		
 		trace("buildGameBF: buildGameBF ends");
 
-		return null;	//CHANGE ME
+		return t;	
 	}				
 
 
