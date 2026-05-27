@@ -74,13 +74,7 @@ public class Queue implements QueueInterface
      *
      * @return boolean whether or not the queue is empty
     */
-    public boolean isEmpty()
-    {
-        trace("isEmpty: isEmpty starts and ends");
-
-        // Check if the first node is null to determine if queue is empty
-        return first == null;
-    }
+    
 
 
     /**
@@ -206,30 +200,7 @@ public class Queue implements QueueInterface
      *
      * @return String the printable contents of the queue
     */
-    public String toString()
-    {
-        Node c;
-        String s="";
-        
-        trace("toString: toString ends");
-                
-        if (isEmpty())
-        {
-            trace("toString: toString ends empty");
-            s="<>";
-        }
-        else
-        {
-            c=first;
-            while (c != null)
-            {
-                s+=(c.getData().toString() + " ");
-                c=c.getNext();
-            }
-            trace("toString: toString ends");
-        }
-        return s;
-    }
+ 
 
 
     /*
@@ -242,11 +213,4 @@ public class Queue implements QueueInterface
      *
      * @param s the String to display as the trace message
     */
-    protected void trace(String s)
-    {
-        if (TRACING)
-        {
-            System.out.println("Queue: " + s);
-        }
-    }
-}
+ 
