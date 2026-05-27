@@ -523,12 +523,12 @@ root.setRight(t.root); // Update the right field of the root
             t = (GameTree) s.top();
 
             // remove it from the stack
-            s.pop();
+            s.pop();	
 
-            // update maze display
+			// display the maze 
             m.update(t);
 
-            // continue DFS recursively
+			// continuation of DFS   
             t = t.buildGameDF(m, s);
         }
     }
@@ -559,10 +559,71 @@ root.setRight(t.root); // Update the right field of the root
 		final int VERTICAL[]={0,-1,0,+1};	// the four movements: [0] is left, [1] is up, [2] is right, [3] is down
 	
 		// local non-final variables
+		Grid b;              
+    	Grid n;             
+    	Location current;    
+    	Location next;       
+    	GameTree child;      
+    	int i;               
+    	int made;            
 		
 		trace("generateLevelBF: generateLevelBF starts");
 		
-//COMPLETE ME
+// get the current maze from the tree root
+    b = (Grid) getData();
+
+    // get current player position
+    current = b.getLocation();
+
+    // no child nodes created yet
+    made = 0;
+
+    // check all 4 movement directions
+    for (i = 0; i < 4; i++)
+    {
+        // calculate the next possible location
+        next = new Location(
+                    current.getRow() + VERTICAL[i],
+                    current.getColumn() + HORIZONTAL[i]);
+
+        // check if move is valid
+        if (b.validMove(next) &&
+            !b.isWall(next) &&
+            !b.squareOccupied(next))
+        {
+            // copy the current maze
+            n = (Grid) b.clone();
+
+            // move to the new square
+            n.occupySquare(next,true);
+
+            // create a child game tree
+            child = new GameTree(n);
+
+            // increase move counter
+            incCount();
+
+            // attach child to left, middle, or right branch
+            if (made == 0)
+            {
+                setLeft(child);
+            }
+            else if (made == 1)
+            {
+                setMiddle(child);
+            }
+            else
+            {
+                setRight(child);
+            }
+
+            // add child to BFS 
+            q.add(child);
+
+            // increase child counter
+            made++;
+        }
+    }
 
 		trace("generateLevelBF: generateLevelBF ends");
 	}
