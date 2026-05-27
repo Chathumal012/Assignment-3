@@ -1,134 +1,120 @@
 //KIT107 Assignment 3
+
 /**
- * Queue ADT
+ *	Dimension ADT
  *
- * @author << Chathumal Karunanayaka - 755936 & Thavisha Perera - 771066 >>
- * @version << 27/05/2026 >>
- * * This file holds the Queue ADT.  The Queue is built
- * using a linked list of Node ADTs.  A Queue object
- * consists of a "first" field which refers to a Node
- * object.
- * * YOU NEED TO MAKE CHANGES TO THIS FILE!
-*/
+ *	@author << Chathumal Karunanayaka - 755936 & Thavisha Perera - 771066 >>
+ * @version << 19/05/2026 >>
+ *
+ * This file holds the Dimension ADT which represents the two-dimensional size
+ * of a maze. The maze's dimension consists of vertical and horizontal
+ * components.
+ *
+ * YOU NEED TO MAKE CHANGES TO THIS FILE!
+ */
 
+public class Dimension implements DimensionInterface {
+    // finals
 
-public class Queue implements QueueInterface
-{
-    //finals
-    protected final boolean TRACING=true;               // do we want to see trace output?
+    protected final boolean TRACING = true;				// do we want to see trace output?
 
     // non-finals
-    protected Node first;       // the node at the front of the queue
-
-
-    /*
-     * Queue
-     * Constructor method 1.
-     * Pre-condition: none
-     * Post-condition: the Queue object's "first" field is null
-     * Informally: intialises the instance variable of the newly
-     * created Queue object by terminating the
-     * "first" field
-    */
-    public Queue()
-    {
-        trace("Queue: Constructor starts");
-
-        first=null;
-
-        trace("Queue: Constructor ends");
-    }
-
+    protected int vert;		// the height of a maze (number of rows)
+    protected int horiz;	// the width of a maze (number of columns)
 
     /**
-     * Queue
-     * Constructor method 2.
-     * Pre-condition: none
-     * Post-condition: the Queue object holds a reference to a Node
-     * object within its "first" field which holds
-     * the parameter value (o)
-     * Informally: intialises the instance variable ("first") of
-     * the newly created Queue object to hold a
-     * reference to a new Node object containing the
-     * given parameter
+     * Dimension Constructor method. Pre-condition: the height (v) and width (h)
+     * are valid positive integers Post-condition: the Dimension object records
+     * the vertical and horizontal sizes within instance variables Informally:
+     * intialises the instance variables of the newly created Dimension object
+     * to hold the vertical and horizontal component values
      *
-     * @param o the Object to store in the queue
-    */
-    public Queue(Object o)
-    {
-        trace("Queue: Constructor starts");
+     * @param v the vertical dimension
+     * @param h the horizontal dimension
+     */
+    public Dimension(int v, int h) {
+        trace("Dimension: Constructor starts");
 
-        first=new Node(o);
+        vert = v;
+        horiz = h; // initialise dimensions 
 
-        trace("Queue: Constructor ends");
+        trace("Dimension: Constructor ends");
     }
 
-    
     /**
-     * isEmpty
-     * Pre-condition: none
-     * Post-condition: true is returned if the Queue object has no
-     * items, false is returned if it does
-     * Informally: examine the Queue object's first instance variable
-     * returning whether or not it is null
+     * setVert Set method for "vert" instance variable. Pre-condition: the
+     * height (v) is a valid positive integer Post-condition: the Dimension
+     * object's vertical size is altered to hold the given (v) value Informally:
+     * assign the value of the parameter to the Dimension object's vertical
+     * component instance variable
      *
-     * @return boolean whether or not the queue is empty
-    */
-    public boolean isEmpty()
-    {
-        trace("isEmpty: isEmpty starts and ends");
+     * @param v the vertical dimension
+     */
+    public void setVert(int v) {
+        trace("setVert: setVert starts");
 
-        // Check if the first node is null to determine if queue is empty
-        return first == null;
+        vert = v;	// Update the vertical dimension instance variable
+
+        trace("setVert: setVert ends");
     }
 
-
     /**
-     * front
-     * Examine the first item in the queue.
-     * Pre-condition: the queue is non-empty
-     * Post-condition: a reference to the item at the front of the
-     * queue is returned
-     * Informally: return a reference to the front of the Queue or
-     * throw an exception if the Queue is empty
+     * setHoriz Set method for "horiz" instance variable. Pre-condition: the
+     * width (h) is a valid positive integer Post-condition: the Dimension
+     * object's horizontal size is altered to hold the given (h) value
+     * Informally: assign the value of the parameter to the Dimension object's
+     * horizontal component instance variable
      *
-     * @return Object the item at the head of the queue
-    */
-    public Object front() throws EmptyQueueException
-    {
-        trace("front: front starts");
+     * @param h the horizontal dimension
+     */
+    public void setHoriz(int h) {
+        trace("setHoriz: setHoriz starts");
 
-        if (isEmpty())
-        {
-            trace("front: queue is empty");
-            throw new EmptyQueueException();
-        }
-        else
-        {
-            trace("front: front ends");
+        horiz = h;	// Update the horizontal dimension   
 
-            // Return the data stored inside the first node
-            return first.getData();
-        }
+        trace("setHoriz: setHoriz ends");
     }
 
+    /**
+     * getVert Get method for "vert" instance variable. Pre-condition: none
+     * Post-condition: the Dimension object's vertical size is returned
+     * Informally: examine the Dimension object's vertical component instance
+     * variable returning its value
+     *
+     * @return int the vertical dimension
+     */
+    public int getVert() {
+        trace("getVert: getVert starts and ends");
+
+        return vert;
+    }
 
     /**
-     * remove
-     * Delete the head of the queue.
-     * Pre-condition: the queue is non-empty
-     * Post-condition: the "first" instance variable is re-assigned
-     * to refer to the value of the second Node
-     * object in the linked list
-     * Informally: bypass the node at the front of the Queue so that
-     * the second node in the Queue becomes the front.
-     * If the Queue is empty, throw an exception
-    */
-    public void remove() throws EmptyQueueException
-    {
-        trace("remove: remove starts");
+     * Get method for "horiz" instance variable. Pre-condition: none
+     * Post-condition: the Dimension object's horizontal size is returned
+     * Informally: examine the Dimension object's horizontal component instance
+     * variable returning its value
+     *
+     * @return int the horizontal dimension
+     */
+    public int getHoriz() {
+        trace("getHoriz: getHoriz starts and ends");
 
-        if (isEmpty())
-        {
-            trace("remove: queue is empty");
-            throw
+        return horiz;
+    }
+
+    /**
+     * trace Provide trace output. Pre-condition: none Post-condition: if trace
+     * output is desired then the given String parameter is shown on the console
+     * Informally: show the given message for tracing purposes
+     *
+     * @param s String to display as a trace message
+     */
+    protected void trace(String s) {
+        if (TRACING) {
+            System.out.println("Dimension: " + s);
+        
+    	}
+	
+}
+}
