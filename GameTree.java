@@ -2,8 +2,8 @@
 /**
  *	GameTree ADT
  *
- *	@author << Student Names and IDs >>
- *	@version << Date of Completion >>
+ *	@author << Chathumal Karunanayaka - 755936 & Thavisha Perera - 771066 >>
+ *	@version << 27/05/2026 >>
  *	
  *	This file holds the GameTree ADT which is a
  *	doubly-linked ternary game tree.  The GameTree is
@@ -40,8 +40,8 @@ public class GameTree implements GameTreeInterface
 	{
 		trace("GameTree: constructor starts");
 		
-//COMPLETE ME
-		
+			root = null;
+			
 		trace("GameTree: constructor ends");
 	}
 
@@ -112,8 +112,8 @@ public class GameTree implements GameTreeInterface
 
 		// non-empty tree
 		trace("getData: getData ends");
-//COMPLETE ME
-		return null;	//CHANGE ME
+
+		return root.getData;
 	}
 	
 	
@@ -180,9 +180,10 @@ public class GameTree implements GameTreeInterface
 			throw new EmptyGameTreeException();
 		}
   
-//COMPLETE ME
+			r = new GameTree();
+			r.root = root.getMiddle(); // Connect the branch
       	trace("getMiddle: getMiddle ends");		
-		return null;	//CHANGE ME
+		return r;	//CHANGE ME
 	}
 
 
