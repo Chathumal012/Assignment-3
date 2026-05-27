@@ -78,11 +78,9 @@ public class Stack implements StackInterface
 	*/
 	public boolean isEmpty()
 	{
-      	trace("isEmpty: isEmpty starts and ends");
+      	trace("isEmpty: isEmpty starts and ends");  
 
-//COMPLETE ME
-
-		return false;	// CHANGE ME
+		return tos==null;          // return whether tos is empty or not
 	}
 
 
@@ -109,9 +107,8 @@ public class Stack implements StackInterface
 		else
 		{
 	      	trace("top: top ends");
-//COMPLETE ME
 
-			return null;	// CHANGE ME
+			return tos.getData();  // return the data of the top of tos
 		}
 	}
 
@@ -139,7 +136,7 @@ public class Stack implements StackInterface
 		else
 		{
 	      	trace("pop: adjusting top of stack");
-//COMPLETE ME
+				tos=tos.getNext();   //  bypass the tos to the next node in the stack
 		}
 		
       	trace("pop: pop ends");
@@ -166,7 +163,11 @@ public class Stack implements StackInterface
 		
       	trace("push: push starts");
       	
-//COMPLETE ME
+		//create a new link between the new node and the tos
+		n = new Node(o);
+    	n.setNext(tos);
+
+    	tos = n;   // make the new node the new tos
 
       	trace("push: push ends");
 	}

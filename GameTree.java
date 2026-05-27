@@ -2,8 +2,8 @@
 /**
  *	GameTree ADT
  *
- *	@author << Student Names and IDs >>
- *	@version << Date of Completion >>
+ *	@author << Chathumal Karunanayaka - 755936 & Thavisha Perera - 771066 >>
+ *	@version << 27/05/2026 >>
  *	
  *	This file holds the GameTree ADT which is a
  *	doubly-linked ternary game tree.  The GameTree is
@@ -40,8 +40,8 @@ public class GameTree implements GameTreeInterface
 	{
 		trace("GameTree: constructor starts");
 		
-//COMPLETE ME
-		
+			root = null;
+			
 		trace("GameTree: constructor ends");
 	}
 
@@ -112,8 +112,8 @@ public class GameTree implements GameTreeInterface
 
 		// non-empty tree
 		trace("getData: getData ends");
-//COMPLETE ME
-		return null;	//CHANGE ME
+
+		return root.getData;
 	}
 	
 	
@@ -180,9 +180,10 @@ public class GameTree implements GameTreeInterface
 			throw new EmptyGameTreeException();
 		}
   
-//COMPLETE ME
+			r = new GameTree();
+			r.root = root.getMiddle(); // Connect the branch
       	trace("getMiddle: getMiddle ends");		
-		return null;	//CHANGE ME
+		return r;
 	}
 
 
@@ -212,9 +213,12 @@ public class GameTree implements GameTreeInterface
 			throw new EmptyGameTreeException();
 		}
   
-//COMPLETE ME
-      	trace("getRight: getRight ends");		
-		return null;	//CHANGE ME
+		r = new GameTree();
+        r.root = root.getRight();
+
+      	trace("getRight: getRight ends");	
+
+		return r;	//CHANGE ME
 	}
 
 
@@ -262,7 +266,7 @@ public class GameTree implements GameTreeInterface
 			throw new EmptyGameTreeException();
 		}
 
-//COMPLETE ME
+		root.setData(o);	// Update the data field   
       	trace("setData: setData ends");
 	}
 	
@@ -291,7 +295,8 @@ public class GameTree implements GameTreeInterface
 			throw new EmptyGameTreeException();
 		}
 		
-//COMPLETE ME
+		root.setLeft(t.root);  // Update the left field of the root  
+
       	trace("setLeft: setLeft ends");
 	}
 	
@@ -320,7 +325,7 @@ public class GameTree implements GameTreeInterface
 			throw new EmptyGameTreeException();
 		}
 		
-//COMPLETE ME
+    root.setMiddle(t.root);  // Update the middle field of the root  
       	trace("setMiddle: setMiddle ends");
 	}
 	
@@ -349,7 +354,8 @@ public class GameTree implements GameTreeInterface
 			throw new EmptyGameTreeException();
 		}
 		
-//COMPLETE ME
+root.setRight(t.root); // Update the right field of the root
+
       	trace("setRight: setRight ends");
 	}
 
@@ -412,11 +418,51 @@ public class GameTree implements GameTreeInterface
 		final int HORIZONTAL[]={-1,0,+1,0};	// together these two arrays represent changes to the row and column for
 		final int VERTICAL[]={0,-1,0,+1};	// the four movements: [0] is left, [1] is up, [2] is right, [3] is down
 	
-		// local non-final variables
+	// local variables
+	Grid g;
+    Grid n;
+    Location current;
+    Location next;
+    GameTree child;
+    int i;
+    int made;
 		
 		trace("generateLevelDF: generateLevelDF starts");
 		
-//COMPLETE ME
+		g = (Grid) getData();
+    	current = g.getLocation();
+    	made = 0;
+
+		for (i = 0; i < 4; i++)
+    {
+        next = new Location(current.getRow() + VERTICAL[i],       // calculate the next location
+                            current.getColumn() + HORIZONTAL[i]);
+
+		// check move validation conditions
+        if (g.validMove(next) && !g.isWall(next) && !g.squareOccupied(next))
+        {
+            n = (Grid) g.clone();
+            n.occupySquare(next,true);
+            child = new GameTree(n);
+            incCount();
+
+            if (made == 0)
+            {
+                setLeft(child);
+            }
+            else if (made == 1)
+            {
+                setMiddle(child);
+            }
+            else
+            {
+                setRight(child);
+            }
+
+            s.push(child);	 // push the child to the stack 
+            made++;   // Increment the count of made moves
+        }
+    }
 	
 		trace("generateLevelDF: generateLevelDF ends");
 	}
