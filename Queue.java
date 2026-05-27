@@ -30,7 +30,7 @@ public class Queue implements QueueInterface
      * created Queue object by terminating the
      * "first" field
     */
-    public Queue()
+    public Queue() 
     {
         trace("Queue: Constructor starts");
 

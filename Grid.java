@@ -272,10 +272,10 @@ public class Grid implements GridInterface, Cloneable
 	{
 		trace("setDimension: setDimension starts");
 
-//COMPLETE ME		
+		dim = d;		
 
 		trace("setDimension: setDimension ends");
-	}
+	} 
 
 
 	/**
@@ -287,16 +287,15 @@ public class Grid implements GridInterface, Cloneable
 	 *	Informally: return the current maze's dimension
 	 *
 	 * 	@return Dimension the Grid's dimension
-	*/
-	/89*999999999999999999999999999999999999999999999
+	*// 
 
 	+
 	public Dimension getDimension()
 	{
 		trace("getDimension: getDimension starts and ends");
 
-//COMPLETE ME
-		return null;	//CHANGE ME
+
+		return dim;	
 	}
 
 
@@ -315,7 +314,7 @@ public class Grid implements GridInterface, Cloneable
 	{
 		trace("setLocation: setLocation starts");
 
-//COMPLETE ME		
+		loc = l;		
 
 		trace("setLocation: setLocation ends");
 	}
@@ -336,8 +335,7 @@ public class Grid implements GridInterface, Cloneable
 	{
 		trace("getLocation: getLocation starts and ends");
 
-//COMPLETE ME
-		return null;	//CHANGE ME
+		return loc;	
 	}
 	
 	
@@ -367,7 +365,11 @@ public class Grid implements GridInterface, Cloneable
 
 		trace("occupySquare: occupySquare starts");
 
-//COMPLETE ME
+	// update the square's details
+	s = getSquare(l);
+    s.occupied(o);
+    setSquare(l, s);
+    loc = l;
 
 		trace("occupySquare: occupySquare ends");
 	}
@@ -395,9 +397,7 @@ public class Grid implements GridInterface, Cloneable
 	{
 		trace("squareOccupied: squareOccupied starts and ends");
 
-//COMPLETE ME
-
-		return false;	//CHANGE ME
+		return getSquare(l).isOccupied();
 	}
 	
 	
@@ -544,10 +544,12 @@ public class Grid implements GridInterface, Cloneable
 
 		trace("validMove: validMove starts");
 
-//COMPLETE ME
+		r = l.getRow();
+    	c = l.getColumn();
 		
       	trace("validMove: validMove ends");
-		return false;	//CHANGE ME
+
+		return (r >= 1 && r <= dim.getVert() && c >= 1 && c <= dim.getHoriz()); 
 	}
 
 
@@ -567,9 +569,8 @@ public class Grid implements GridInterface, Cloneable
 	public boolean gameOver()
 	{
 		trace("gameOver: gameOver starts and ends");
-
-//COMPLETE ME
-		return false;	//CHANGE ME
+		
+		return getSquare(loc).isStopSquare();
 	}
 
 	

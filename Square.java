@@ -2,8 +2,8 @@
 /**
  *	Square ADT
  *
- *	@author << Student Names and IDs >>
- *	@version << Date of Completion >>
+ *	@author << Chathumal Karunanayaka - 755936 & Thavisha Perera - 771066 >>
+ *	@version << 26/05/2026 >>
  *
  *	This file holds the Square ADT which represents
  *	a physical space within a maze.  A Square in a
@@ -59,6 +59,8 @@ public class Square implements SquareInterface, Cloneable
 		start=false;
 		stop=false;
 		number=-1;
+
+		trace("Square: Constructor ends");
 	}
 
 

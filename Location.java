@@ -87,13 +87,6 @@ public class Location implements LocationInterface, Cloneable
 
 		column = c;
 
-    public void setColumn(int c)
-{
-    trace("setColumn: setColumn starts");
-
-    // update the column position of the location
-    column = c;
-
     trace("setColumn: setColumn ends");
 }
 	
@@ -115,9 +108,6 @@ public int getRow()
     // return the row position of the location
     return row;
 }
-
-		return row;	
-	}
 	
 	
 	/**
@@ -152,6 +142,8 @@ public int getColumn()
 public Object clone()
 {
     Location l;
+
+		trace("clone: clone starts");
 
 	
 			l = new Location(row, column);
