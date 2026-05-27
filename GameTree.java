@@ -495,16 +495,47 @@ root.setRight(t.root); // Update the right field of the root
 	*/
 	public GameTree buildGameDF(MazeSolver m, Stack s)
 	{
-		GameTree t;	// game tree containing next candidate move
-		Grid b;		// grid from current tree
+		GameTree t;	
+		Grid g;		
 			
 		trace("buildGameDF: buildGameDF starts");
 
-//COMPLETE ME
+		g = (Grid) getData();
+		
+		if (g.gameOver())
+    {
+        // maze solved
+        t = this;
+    }
+    else
+    {
+        // generate next DFS move
+        generateLevelDF(s);
+
+        // if the stack is empty, there is no solution
+        if (s.isEmpty())
+        {
+            t = new GameTree();
+        }
+        else
+        {
+            // get next state from the stack
+            t = (GameTree) s.top();
+
+            // remove it from the stack
+            s.pop();
+
+            // update maze display
+            m.update(t);
+
+            // continue DFS recursively
+            t = t.buildGameDF(m, s);
+        }
+    }
 		
 		trace("buildGameDF: buildGameDF ends");
 
-		return null;	//CHANGE ME
+		return t;
 	}
 	
 	
