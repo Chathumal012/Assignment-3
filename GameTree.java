@@ -183,7 +183,7 @@ public class GameTree implements GameTreeInterface
 			r = new GameTree();
 			r.root = root.getMiddle(); // Connect the branch
       	trace("getMiddle: getMiddle ends");		
-		return r;	//CHANGE ME
+		return r;
 	}
 
 
@@ -213,9 +213,12 @@ public class GameTree implements GameTreeInterface
 			throw new EmptyGameTreeException();
 		}
   
-//COMPLETE ME
-      	trace("getRight: getRight ends");		
-		return null;	//CHANGE ME
+		r = new GameTree();
+        r.root = root.getRight();
+
+      	trace("getRight: getRight ends");	
+
+		return r;	//CHANGE ME
 	}
 
 
@@ -263,7 +266,7 @@ public class GameTree implements GameTreeInterface
 			throw new EmptyGameTreeException();
 		}
 
-//COMPLETE ME
+		root.setData(o);	// Update the data field   
       	trace("setData: setData ends");
 	}
 	
@@ -292,7 +295,8 @@ public class GameTree implements GameTreeInterface
 			throw new EmptyGameTreeException();
 		}
 		
-//COMPLETE ME
+		root.setLeft(t.root);  // Update the left field of the root  
+
       	trace("setLeft: setLeft ends");
 	}
 	
@@ -321,7 +325,7 @@ public class GameTree implements GameTreeInterface
 			throw new EmptyGameTreeException();
 		}
 		
-//COMPLETE ME
+    root.setMiddle(t.root);  // Update the middle field of the root  
       	trace("setMiddle: setMiddle ends");
 	}
 	
@@ -350,7 +354,8 @@ public class GameTree implements GameTreeInterface
 			throw new EmptyGameTreeException();
 		}
 		
-//COMPLETE ME
+root.setRight(t.root); // Update the right field of the root
+
       	trace("setRight: setRight ends");
 	}
 
